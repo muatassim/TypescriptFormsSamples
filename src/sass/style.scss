@@ -1,0 +1,18 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #000000;
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background-color: beige;
+  padding-top: 50px;
+}
+hr {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}

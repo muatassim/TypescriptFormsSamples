@@ -1,0 +1,19 @@
+.myImage {
+    border: solid 2px goldenrod;
+    width: 75px;
+    height: 100px;
+    position: relative;
+    top:-16px;
+    right:-706px;
+  }
+ nav{
+   background-attachment: #16042e;
+   padding: 8px;
+ }
+ .flex-container{
+     display: flex;
+ }
+ .flex-item{
+     flex-grow:1;
+     padding: 1em;
+ }

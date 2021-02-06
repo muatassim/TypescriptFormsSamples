@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link rel="stylesheet" href="dist/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/libs/toastr/build/toastr.css">
+    <link rel="stylesheet" href="dist/css/site.css">
+    <title>Html Template</title>
+</head>
+<body class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Classes and Interfaces</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mathexamples.html">Math Examples</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="register.html">
+                    Register
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="carloan.html">
+                    Car Loan Calculator
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<header>
+    <h1>Register </h1>
+</header>
+<main>
+    <form id="registerForm" name="registerForm">
+        <section class="form-group">
+            <label for="txtFirstName"></label>
+            <input id="txtFirstName" required title="Please enter FirstName"
+                   placeholder="Enter FirstName" type="text" class="form-control ">
+            <small id="txtFirstNameHelp" class="d-none">
+               First Name is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtLastName"></label>
+            <input id="txtLastName" required type="text" placeholder="Enter Last Name" class="form-control">
+            <small id="txtLastNameHelp" class="d-none">
+                Last Name is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtEmail"></label>
+            <input id="txtEmail" required type="email" placeholder="Enter Email" class="form-control">
+            <small id="txtEmailHelp" class="d-none">
+                Email is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtConfirmEmail"></label>
+            <input id="txtConfirmEmail" required type="email" placeholder="Confirm Email " class="form-control">
+            <small id="txtConfirmEmailHelp" class="d-none">
+                Confirm Email is required, and must match email above.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtPassword"></label>
+            <input id="txtPassword" required type="password" placeholder="Enter Password" class="form-control">
+            <small id="txtPasswordHelp" class="d-none">
+                Password is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtConfirmPassword"></label>
+            <input id="txtConfirmPassword" required type="password" placeholder="Confirm Password" class="form-control">
+            <small id="txtConfirmPasswordHelp" class="d-none">
+                Confirm Password is required, and must match password above.
+            </small>
+        </section>
+        <section class="form-group">
+            <button type="submit" id="btnRegister" class="btn btn-primary btn-lg">Register</button>
+        </section>
+
+    </form>
+</main>
+<footer>
+</footer>
+<!-- scripts -->
+<script src="dist/libs/jquery/dist/jquery.js"></script>
+<script src="dist/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="dist/js/views/registerView.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link rel="stylesheet" href="dist/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/libs/toastr/build/toastr.css">
+    <link rel="stylesheet" href="dist/css/site.css">
+    <title>Car Loan Calculator</title>
+</head>
+<body class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Classes and Interfaces</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mathexamples.html">Math Examples</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register.html" >
+                    Register
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="carloan.html" >
+                    Car Loan Calculator
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<header>
+    <h1>Car Loan Calculator</h1>
+</header>
+<main class="flex-container">
+    <section class="flex-item">
+        <form>
+            <div class="form-group">
+                <label for="txtLoanAmount">Loan Amount</label>
+                <input class="form-control" type="text" id="txtLoanAmount" name="txtLoanAmount" />
+            </div>
+            <div class="form-group">
+                <label for="txtInterestRate">Interest  (%)</label>
+                <input class="form-control" type="text" id="txtInterestRate" name="txtInterestRate" />
+            </div>
+            <div class="form-group">
+                <label for="txtLoanPeriod">Loan Period (months)</label>
+                <input class="form-control" type="text" id="txtLoanPeriod" name="txtLoanPeriod" />
+            </div>
+
+        </form>
+    </section>
+    <section class="flex-item">
+        <div class="form-group">
+            <label for="txtTotalCost">Total Cost</label>
+            <input class="form-control" readonly type="text" id="txtTotalCost" name="txtLoanAmtxtTotalCostount" />
+        </div>
+        <div class="form-group">
+            <label for="txtMonthlyPayments">Monthly Payments</label>
+            <input class="form-control" readonly type="text" id="txtMonthlyPayments" name="txtMonthlyPayments" />
+        </div>
+    </section>
+</main>
+<footer>
+    &copy; Copyright 2021 HTML Template
+</footer>
+<!-- scripts -->
+<script src="dist/libs/jquery/dist/jquery.js"></script>
+<script src="dist/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="dist/js/views/carloan.js"></script>
+</body>
+</html>
