@@ -1,4 +1,4 @@
-import {IUtilities, Utilities} from "../helpers/utilities.helper.cs";
+import {IUtilities, Utilities} from "../helpers/utilities.helper";
 
 interface IEmployeesModel {
     employeeID: number;

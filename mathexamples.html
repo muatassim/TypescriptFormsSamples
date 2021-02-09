@@ -51,13 +51,23 @@
         <h1>Math Functions </h1>
     </header>
     <main>
-        <form id="operatorForm" class="form-inline" name="operatorForm">
-            <input class="form-control" type="text" name="firstNumber" id="firstNumber">
-            <select name="operator" id="operator" class="form-control">
-
-            </select>
-            <input type="text" name="secondNumber" id="secondNumber" class="form-control">
-            <button id="btnMath" name="btnMath" class="btn btn-primary">Calculate</button>
+        <form id="operatorForm"  name="operatorForm">
+            <section class="form-group">
+                <label for="firstNumber"></label>
+                <input class="form-control" placeholder="Enter First Number" type="text" name="firstNumber" id="firstNumber">
+            </section>
+           <section class="form-group">
+               <label for="answers"></label>
+               <select name="operator" id="operator" class="form-control">
+               </select>
+           </section>
+           <section class="form-group">
+               <label for="secondNumber"></label>
+               <input type="text" placeholder="Enter Second Number" name="secondNumber" id="secondNumber" class="form-control">
+           </section>
+          <section class="form-group">
+              <button id="btnMath" name="btnMath" class="btn btn-primary">Calculate</button>
+          </section>
         </form>
         <br/>
         <ul id="answers" name="answers" class="list-group">
