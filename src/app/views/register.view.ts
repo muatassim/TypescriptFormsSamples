@@ -13,7 +13,7 @@ class RegisterView {
     Save(): void {
         let registerModel: RegisterModel =
             new RegisterModel();
-        if (registerModel.validate("registerForm")){
+        if (registerModel.validate("registerForm", "btnRegister")){
             toastr.info(`${JSON.stringify(registerModel)}`);
             localStorage.setItem(registerModel.email, JSON.stringify(registerModel));
         }
@@ -25,7 +25,7 @@ class RegisterView {
 export {RegisterView}
 document.addEventListener(ApplicationEvents.DOMContentLoaded,
     () => {
-        let myView: RegisterView = new RegisterView();
+        new RegisterView();
     });
 
 

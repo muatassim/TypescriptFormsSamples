@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link rel="stylesheet" href="dist/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/libs/toastr/build/toastr.css">
+    <link rel="stylesheet" href="dist/css/site.css">
+    <title>Html Template</title>
+</head>
+<body class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Classes and Interfaces</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mathexamples.html">Math Examples</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register.html">
+                    Register
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="carloan.html">
+                    Car Loan Calculator
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="employees.html">
+                    Employees
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<header>
+    <h1>Employees </h1>
+</header>
+<main>
+    <form id="employeesForm" name="employeesForm">
+        <section class="form-group">
+            <label for="txtEmployeeID"></label>
+            <input id="txtEmployeeID" required title="Please enter Employee ID "
+                   placeholder="Enter Employees ID" type="number" class="form-control ">
+            <small id="txtEmployeeIDHelp" class="d-none">
+                Employees ID is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtTitle"></label>
+            <input id="txtTitle" required title="Please enter Title "
+                   placeholder="Enter Title" type="text" class="form-control ">
+            <small id="txtTitleHelp" class="d-none">
+                Title is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtLastName"></label>
+            <input id="txtLastName" required title="Please enter Last Name "
+                   placeholder="Enter Last Name" type="text" class="form-control ">
+            <small id="txtLastNameHelp" class="d-none">
+                Last Name is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtFirstName"></label>
+            <input id="txtFirstName" required title="Please enter First Name "
+                   placeholder="Enter First Name" type="text" class="form-control ">
+            <small id="txtFirstNameHelp" class="d-none">
+                First Name is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtTitleOfCourtesy"></label>
+            <input id="txtTitleOfCourtesy" required title="Please enter Title of Courtesy "
+                   placeholder="Enter Title of Courtesy" type="text" class="form-control ">
+            <small id="txtTitleOfCourtesyHelp" class="d-none">
+                Title of Courtesy required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtBirthDate"></label>
+            <input id="txtBirthDate" required title="Please enter BirthDate"
+                   placeholder="Enter BirthDate" type="date" class="form-control ">
+            <small id="txtBirthDateHelp" class="d-none">
+                Birth Date is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtHireDate"></label>
+            <input id="txtHireDate" required title="Please enter Hire Date "
+                   placeholder="Enter Hire Date" type="date" class="form-control ">
+            <small id="txtHireDateHelp" class="d-none">
+                Hire Date is required.
+            </small>
+        </section>
+
+        <section class="form-group">
+            <label for="txtAddress"></label>
+            <input id="txtAddress" required title="Please enter Address "
+                   placeholder="Enter Address" type="text" class="form-control ">
+            <small id="txtAddressHelp" class="d-none">
+                Address is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtCity"></label>
+            <input id="txtCity" required title="Please enter City "
+                   placeholder="Enter City" type="text" class="form-control ">
+            <small id="txtCityHelp" class="d-none">
+                City is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtRegion"></label>
+            <input id="txtRegion" required title="Please enter Region "
+                   placeholder="Enter Region" type="text" class="form-control ">
+            <small id="txtRegionHelp" class="d-none">
+                Region is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtPostalCode"></label>
+            <input id="txtPostalCode" required title="Please enter Postal Code"
+                   placeholder="Enter Postal Code" type="text" class="form-control ">
+            <small id="txtPostalCodeHelp" class="d-none">
+                Postal Code is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtCountry"></label>
+            <input id="txtCountry" required title="Please enter Country "
+                   placeholder="Enter Country" type="text" class="form-control ">
+            <small id="txtCountryHelp" class="d-none">
+                Country is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtHomePhone"></label>
+            <input id="txtHomePhone" required title="Please enter Home Phone "
+                   placeholder="Enter Home Phone" type="text" class="form-control ">
+            <small id="txtHomePhoneHelp" class="d-none">
+               Home Phone is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtExtension"></label>
+            <input id="txtExtension" title="Please enter Extension "
+                   placeholder="Enter Extension" type="text" class="form-control ">
+            <small id="txtExtensionHelp" class="d-none">
+                Extension  required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtPhoto"></label>
+            <input id="txtPhoto" required title="Please enter Photo "
+                   placeholder="Enter Photo " type="text" class="form-control ">
+            <small id="txtPhotoHelp" class="d-none">
+                Photo is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtNotes"></label>
+            <input id="txtNotes" required title="Please enter Notes "
+                   placeholder="Enter Notes " type="text" class="form-control ">
+            <small id="txtNotesHelp" class="d-none">
+                Notes is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtReportsTo"></label>
+            <input id="txtReportsTo" required title="Please enter Reports To "
+                   placeholder="Enter Reports To" type="text" class="form-control ">
+            <small id="txtReportsToHelp" class="d-none">
+                Reports To is required.
+            </small>
+        </section>
+
+        <section class="form-group">
+            <label for="txtPhotoPath"></label>
+            <input id="txtPhotoPath" required title="Please enter Photo Path"
+                   placeholder="Enter Photo Path" type="text" class="form-control ">
+            <small id="txtPhotoPathHelp" class="d-none">
+                Photo Path is  required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="txtPhotoUrl"></label>
+            <input id="txtPhotoUrl" required title="Please enter Photo Url "
+                   placeholder="Enter Photo Url" type="text" class="form-control ">
+            <small id="txtPhotoUrlHelp" class="d-none">
+               Photo Url is required.
+            </small>
+        </section>
+
+        <section class="form-group">
+            <button type="submit" id="btnSave" class="btn btn-primary btn-lg">Save</button>
+        </section>
+
+    </form>
+</main>
+<footer>
+</footer>
+<!-- scripts -->
+<script src="dist/libs/jquery/dist/jquery.js"></script>
+<script src="dist/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="dist/js/views/employeesView.js"></script>
+</body>
+</html>

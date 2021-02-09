@@ -1,4 +1,4 @@
-import toastr from "toastr";
+import {IUtilities, Utilities} from "../helpers/utilities.helper.cs";
 
 interface IRegisterModel {
     firstName: string;
@@ -12,82 +12,51 @@ interface IRegisterModel {
 class RegisterModel implements IRegisterModel {
     firstName: string;
     lastName: string;
-    email: string ;
-    confirmEmail: string ;
-    password: string ;
+    email: string;
+    confirmEmail: string;
+    password: string;
     confirmPassword: string;
-
+    utils: IUtilities;
     constructor() {
-        this.firstName = this.getInputElement("txtFirstName")!.value;
-        this.lastName = this.getInputElement("txtLastName")!.value;
-        this.email = this.getInputElement("txtEmail")!.value;
-        this.confirmEmail = this.getInputElement("txtConfirmEmail")!.value;
-        this.password = this.getInputElement("txtPassword")!.value;
-        this.confirmPassword = this.getInputElement("txtConfirmPassword")!.value;
+        this.utils = new Utilities();
+        this.firstName = this.utils.getInputElement("txtFirstName")!.value;
+        this.lastName = this.utils.getInputElement("txtLastName")!.value;
+        this.email = this.utils.getInputElement("txtEmail")!.value;
+        this.confirmEmail = this.utils.getInputElement("txtConfirmEmail")!.value;
+        this.password = this.utils.getInputElement("txtPassword")!.value;
+        this.confirmPassword = this.utils.getInputElement("txtConfirmPassword")!.value;
     }
+
     // this method we will use to validate
     // values entered in the register form
-    validate(formId:string): boolean {
+    validate(formId: string, btnId: string): boolean {
         let isValid: boolean = true;
-        let form:HTMLFormElement= <HTMLFormElement>
-            document.getElementById(formId);
-        if (form)
-        {
-            for(let i=0;i<form.elements.length;i++) {
-                let inputElement:HTMLInputElement|null =
-                    this.getInputElement(form.elements[i].id);
-                if (inputElement && inputElement.id !== "btnRegister") {
-                    if (!this.validateInput(inputElement.id)) {
-                        isValid = false;
-                    }
-                }
-            }
-            //validate password match
-            if (this.email !== this.confirmEmail){
+        if (this.utils.validate(formId, btnId)) {
+            if (this.email !== this.confirmEmail) {
                 isValid = false;
-                let id:string ="txtConfirmEmail";
-                this.getInputElement(id)!.setAttribute(
+                let id: string = "txtConfirmEmail";
+                this.utils.getInputElement(id)!.setAttribute(
                     "class", "form-control is-invalid");
                 document.getElementById(
                     `${id}Help`)!.setAttribute(
                     "class", "text-danger d-block");
             }
             //validate emails match
-            if (this.password !== this.confirmPassword){
-                isValid=false;
-                let id:string ="txtConfirmPassword";
-                this.getInputElement(id)!.setAttribute(
+            if (this.password !== this.confirmPassword) {
+                isValid = false;
+                let id: string = "txtConfirmPassword";
+                this.utils.getInputElement(id)!.setAttribute(
                     "class", "form-control is-invalid");
                 document.getElementById(
                     `${id}Help`)!.setAttribute(
                     "class", "text-danger d-block");
             }
+
+        } else {
+            isValid = false;
         }
         return isValid;
     }
-
-    getInputElement(id: string): HTMLInputElement | null {
-        return <HTMLInputElement> document.getElementById(id);
-    }
-    validateInput(id:string): boolean {
-        let inputElement: HTMLInputElement | null =
-            this.getInputElement(id);
-        if (inputElement!.validity.valid) {
-            inputElement!.setAttribute(
-                "class", "form-control is-valid");
-            document.getElementById(
-                `${id}Help`)!.setAttribute(
-                "class", "d-none");
-            return true;
-        }
-        else{
-            inputElement?.setAttribute(
-                "class", "form-control is-invalid");
-            document.getElementById(
-                `${id}Help`)!.setAttribute(
-                "class", "text-danger d-block");
-            return false;
-        }
-    }
 }
+
 export {IRegisterModel, RegisterModel}
