@@ -13,14 +13,18 @@
     "start": "concurrently \"npm run build\" \"npm run lite\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Muatassim Aziz",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.5.3",
     "@types/bootstrap": "^5.0.1",
+    "@types/axios": "^0.14.0",
+    "@types/sweetalert": "^2.0.4",
     "@types/toastr": "2.1.37",
+    "axios": "^0.21.1",
     "toastr": "^2.1.4",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "sweetalert2": "^10.14.0"
   },
   "devDependencies": {
     "babel-loader": "^8.2.2",
