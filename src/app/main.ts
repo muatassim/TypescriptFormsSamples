@@ -4,29 +4,36 @@ import { ApplicationEvents } from "./helpers/applicationevents";
 import {BaseDataService, IBaseDataService} from "./helpers/base.dataservice";
 import {EmployeesModel} from "./models/employees.model";
 import {AxiosResponse} from "axios";
+import {ITableHelper, TableHelper} from "./helpers/tablehelper";
 class Main {
     dataService:IBaseDataService;
+    tableHelper: ITableHelper;
     constructor() {
         this.dataService = new BaseDataService();
-
+        this.tableHelper = new TableHelper();
     }
     init() {
         toastr.options.positionClass = 'toast-bottom-full-width'
         toastr.info("This is the information","Title Toaster");
         let employees: Array<EmployeesModel>;
-        this.dataService.Get(`https://nwwebapi.azurewebsites.net/api/Employees`)!
+        let apiUrl:string = "https://nwwebapi.azurewebsites.net/api/";
+        this.dataService.Get(`${apiUrl}Employees`)!
             .then((axiosResponse: AxiosResponse<Array<EmployeesModel>>) => {
                 employees = axiosResponse.data;
                  console.log(axiosResponse.data);
                 for (let i=0;i<employees.length; i++){
                     console.log(`${employees[i].lastName}, ${employees[i].firstName}`);
                 }
+                let table: HTMLTableElement = this.tableHelper.getUploadTable(employees,apiUrl)
+                document.getElementById("main")!.appendChild(table);
             }).catch((error) =>{
-                console.log(error);
+                Swal.fire(error);
             }).finally(() =>{
-                console.log("finally method called. all done!");
-                Swal.fire(`Employees `, `employess record count is ${employees.length}`, "info");
+                //console.log("finally method called. all done!");
+                //Swal.fire(`Employees `, `employess record count is ${employees.length}`, "info");
            });
+
+
     }
 }
 export {Main}
