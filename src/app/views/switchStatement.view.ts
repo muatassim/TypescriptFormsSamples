@@ -1,8 +1,7 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
 import Axios from "axios";
-import {CountryModel, ICountryModel} from "../models/country.model";
-
+import {CountryModel} from "../models/country.model";
 class switchStatementView {
     constructor(){
         document.getElementById("btnCheck")!
@@ -10,9 +9,7 @@ class switchStatementView {
                 e.preventDefault();
                 this.ShowSelection();
             }));
-
     }
-
     ShowSelection(): void {
         //toastr.info("Show Selection");
         let ddlCountry:HTMLSelectElement =<HTMLSelectElement>
@@ -36,7 +33,6 @@ class switchStatementView {
     }
 
     countries: CountryModel[] =[];
-
     getSelection(): void {
         Axios.get("https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-population.json")
             .then(axiosResponse => {
@@ -51,11 +47,8 @@ class switchStatementView {
             })
             .finally(() => {
                 toastr.success("Data Loaded!");
-
             });
-
     }
-
     bindDropDown() : void {
         // for loop
         for(let i=0; i< this.countries.length; i++){
@@ -75,9 +68,7 @@ class switchStatementView {
         // do while
     }
 }
-
 export {switchStatementView}
-
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
     let myView  = new switchStatementView();
     myView.getSelection();
