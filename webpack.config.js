@@ -29,7 +29,9 @@ module.exports = {
         "views/mathexamples": './views/mathexamples.ts',
         "views/carloan": "./views/carloan.ts",
         "views/registerView": "./views/register.view.ts",
-        "views/employeesView": "./views/employees.view.ts"
+        "views/employeesView": "./views/employees.view.ts",
+        "views/employeeListView": "./views/employeesList.view.ts",
+        "views/switchStatementView": "./views/switchStatement.view.ts"
     },
     output: {
         publicPath: distPath, //root path where js will be copied
@@ -98,6 +100,10 @@ module.exports = {
                 {
                     from: path.join(srcPath, '/css/'),
                     to: path.join(distPath, '/css/')
+                },
+                {
+                    from: path.join(srcPath, '/assets/'),
+                    to: path.join(distPath, '/assets/')
                 }
             ]
         })

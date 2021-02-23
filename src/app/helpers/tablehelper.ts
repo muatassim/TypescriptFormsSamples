@@ -1,14 +1,14 @@
 import {EmployeesModel} from "../models/employees.model";
 
 interface ITableHelper {
-    getUploadTable(employees: Array<EmployeesModel>, apiUrl:string): HTMLTableElement;
+    getEmployeesTable(employees: Array<EmployeesModel>, apiUrl: string): HTMLTableElement;
 }
 
 class TableHelper implements ITableHelper {
     constructor() {
     }
 
-    getUploadTable(employees: Array<EmployeesModel>,apiUrl:string): HTMLTableElement {
+    getEmployeesTable(employees: Array<EmployeesModel>, apiUrl: string): HTMLTableElement {
         let table: HTMLTableElement = document.createElement("table");
         table.id = "progressTable";
         table.setAttribute("role", "presentation");
@@ -36,28 +36,15 @@ class TableHelper implements ITableHelper {
                 this.addTableDataCell(row, employee.lastName, 3);
                 let imageElement: HTMLImageElement = document.createElement("img")
                 imageElement.src = `${apiUrl}image/${employee.employeeID}`;
-                imageElement.height = 100;
-                imageElement.width = 100;
-
+                imageElement.height = 200;
+                imageElement.width = 200;
                 let cell: HTMLTableDataCellElement = row.insertCell(4);
                 cell.appendChild(imageElement);
-                //}
-                //else{
-                //    this.addTableDataCell(row,employee.photoPath, 4);
-                //}
             }
         }
 
-        //#endregion
-        let tFoot: HTMLTableSectionElement = table.createTFoot();
-        if (tFoot) {
-            let footerRow: HTMLTableRowElement = tFoot.insertRow(0);
-            let cell: HTMLTableDataCellElement = footerRow.insertCell(0);
-            cell.colSpan = 5;
-            let footerCellValue = `Total Employees: ${employees.length}`
-            cell.innerHTML = footerCellValue;
-
-        }
+        //#t
+        this.addFooter(table, `Total Employees: ${employees.length}`);
         return table;
     }
 
@@ -66,32 +53,16 @@ class TableHelper implements ITableHelper {
         cell.innerHTML = cellValue;
     }
 
-    convertDataUrlToBlob(dataUrl: string): Blob | null {
-        const arr = dataUrl.split(',');
-        if (arr) {
-            if (arr[0] && arr[1]) {
-                const mime = arr[0].match(/:(.*?);/)![1];
-                const bstr = atob(arr[1]);
-                let n = bstr.length;
-                const u8arr = new Uint8Array(n);
-                while (n--) {
-                    u8arr[n] = bstr.charCodeAt(n);
-                }
+    addFooter(table: HTMLTableElement, content: string) {
+        let tFoot: HTMLTableSectionElement = table.createTFoot();
+        if (tFoot) {
+            let footerRow: HTMLTableRowElement = tFoot.insertRow(0);
+            let cell: HTMLTableDataCellElement = footerRow.insertCell(0);
+            cell.colSpan = 5;
+            let footerCellValue = content;
+            cell.innerHTML = footerCellValue;
 
-                return new Blob([u8arr], {type: mime})
-            }
         }
-        return null;
-    }
-
-    _arrayBufferToBase64(buffer: any) {
-        let binary = '';
-        const bytes = new Uint8Array(buffer);
-        const len = bytes.byteLength;
-        for (let i = 0; i < len; i++) {
-            binary += String.fromCharCode(bytes[i]);
-        }
-        return window.btoa(binary);
     }
 }
 
