@@ -59,8 +59,7 @@ class TableHelper implements ITableHelper {
             let footerRow: HTMLTableRowElement = tFoot.insertRow(0);
             let cell: HTMLTableDataCellElement = footerRow.insertCell(0);
             cell.colSpan = 5;
-            let footerCellValue = content;
-            cell.innerHTML = footerCellValue;
+            cell.innerHTML = content;
 
         }
     }

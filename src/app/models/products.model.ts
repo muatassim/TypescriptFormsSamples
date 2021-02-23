@@ -36,7 +36,7 @@ class Products implements IProducts {
         this.unitsInStock = Number(this.utils.getInputElement("txtUnitsInStock")!.value);
         this.unitsOnOrder = Number(this.utils.getInputElement("txtUnitsOnOrder")!.value);
         this.reorderLevel = Number(this.utils.getInputElement("txtReorderLevel")!.value);
-        this.discontinued = this.utils.getInputElement("txtDiscontinued")!.value === "true" ? true : false;
+        this.discontinued = this.utils.getInputElement("txtDiscontinued")!.value === "true";
     }
     validate(formId: string, btnId: string): boolean {
         let isValid: boolean = false;
