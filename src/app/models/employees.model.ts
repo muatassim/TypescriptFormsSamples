@@ -77,7 +77,7 @@ class   EmployeesModel implements  IEmployeesModel {
         }
         return isValid;
     }
-
+    static className:string = "employees";
 }
 
 export  {IEmployeesModel, EmployeesModel}

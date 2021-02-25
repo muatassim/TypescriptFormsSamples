@@ -1,11 +1,10 @@
-interface ICountryModel {
+export interface ICountryModel {
     country:string;
     population:number;
 }
-class  CountryModel implements  ICountryModel {
+export class  CountryModel implements  ICountryModel {
     country: string;
     population: number;
-
     constructor() {
         this.country ="";
         this.population=0 ;
@@ -13,4 +12,3 @@ class  CountryModel implements  ICountryModel {
     }
 
 }
-export {ICountryModel,CountryModel}

@@ -11,7 +11,6 @@ class switchStatementView {
             }));
     }
     ShowSelection(): void {
-        //toastr.info("Show Selection");
         let ddlCountry:HTMLSelectElement =<HTMLSelectElement>
             document.getElementById("ddlCountry");
         if (ddlCountry){
@@ -51,19 +50,24 @@ class switchStatementView {
     }
     bindDropDown() : void {
         // for loop
-        for(let i=0; i< this.countries.length; i++){
-            let countryModel:CountryModel = this.countries[i];
-            console.log(`${countryModel.country} has ${countryModel.population}`);
-            let ddlCountry: HTMLSelectElement = <HTMLSelectElement>
-                document.getElementById("ddlCountry")
+        let ddlCountry: HTMLSelectElement = <HTMLSelectElement>  document.getElementById("ddlCountry");
+        let i = 0;
+        while (i<this.countries.length){
+        //for(let i=0; i< this.countries.length; i++){
+            let myModel:CountryModel = this.countries[i];
+            //console.log(`${countryModel.country} has ${countryModel.population}`);
             if (ddlCountry){
                 let option: HTMLOptionElement = document.createElement("option");
-                option.value = countryModel.population.toString();
-                option.innerText = countryModel.country;
+                option.value = myModel.population.toString();
+                option.innerText = myModel.country;
                 ddlCountry.add(option);
             }
+            i++;
         }
+
+
         //while loop
+
 
         // do while
     }

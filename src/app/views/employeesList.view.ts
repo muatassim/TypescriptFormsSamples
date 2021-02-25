@@ -38,7 +38,7 @@ class EmployeesListView {
             });
     }
 
-    showTable(employees: EmployeesModel[]): HTMLTableElement {
+     showTable(employees: EmployeesModel[]): HTMLTableElement {
         let table: HTMLTableElement = document.createElement('table');
         table.setAttribute('class', `table table-bordered table-striped table-hover`);
         //thead Element
@@ -57,8 +57,9 @@ class EmployeesListView {
         let tBody: HTMLTableSectionElement = table.createTBody();
         if (tBody) {
             for (let i = 0; i< employees.length; i++) {
+                let employee: EmployeesModel = employees[i];
                 let row: HTMLTableRowElement = tBody.insertRow();
-                this.addCell(row, 0, employees[i].employeeID.toString(), 'scope', 'row');
+                this.addCell(row, 0, employee.employeeID.toString(), 'scope', 'row');
                 this.addCell(row, 1, employees[i].lastName, 'scope', 'row');
                 this.addCell(row, 2, employees[i].firstName, 'scope', 'row');
                 this.addCell(row, 3, employees[i].title, 'scope', 'row');
@@ -81,6 +82,7 @@ class EmployeesListView {
         let cell = row.insertCell(index);
         cell.innerText = val;
         cell.setAttribute(attributeName, attributeValue);
+
     }
 }
 
@@ -88,7 +90,7 @@ class EmployeesListView {
 export {EmployeesListView}
 
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
-    new EmployeesListView();
+    let emp = new EmployeesListView();
 
 
 });

@@ -1,9 +1,11 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
 import {EmployeesModel, IEmployeesModel} from "../models/employees.model";
+import {View} from "./view";
 
-class EmployeesView {
+export class EmployeesView extends View {
     constructor() {
+        super("Employees");
         toastr.info(`Employees View Initialized!`);
         document.getElementById("btnSave")!.addEventListener(ApplicationEvents.Click,
             (e: Event) => {
@@ -13,7 +15,7 @@ class EmployeesView {
     }
 
     Save(): void {
-        let empModel: IEmployeesModel = new EmployeesModel();
+        let empModel: EmployeesModel = new EmployeesModel();
         if (empModel.validate("employeesForm", "btnSave")) {
             toastr.info(`${JSON.stringify(empModel)}`);
             localStorage.setItem(empModel.employeeID.toString(), JSON.stringify(empModel));
@@ -23,8 +25,9 @@ class EmployeesView {
     }
 }
 
-export {EmployeesView}
 
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
-     new EmployeesView();
+    let emp:EmployeesView = new EmployeesView();
+
+
 });
