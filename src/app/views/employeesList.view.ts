@@ -2,15 +2,16 @@ import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
 import {EmployeesModel} from "../models/employees.model";
 import Axios from "axios";
+import {View} from "./view";
 
-class EmployeesListView {
+class EmployeesListView extends  View{
     constructor() {
-        //toastr.info("Employee List initiated!");
+        super("Employee List",);
         document.getElementById('btnLoadData')!
             .addEventListener(ApplicationEvents.Click, (e: Event) => {
                 e.preventDefault();
                 this.LoadData();
-            })
+            });
     }
 
     LoadData() {

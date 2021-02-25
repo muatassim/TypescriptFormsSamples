@@ -1,9 +1,10 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
-import * as toastr from "toastr";
+import {View} from "./view";
 
-class CarLoan {
+class CarLoan extends  View {
     constructor() {
         //console.log("constructor called");
+        super("Car Loan Calculator");
     }
 
     init():void {

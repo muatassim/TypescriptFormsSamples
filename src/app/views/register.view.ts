@@ -1,10 +1,12 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
 import { RegisterModel} from "../models/register.model";
+import {View} from "./view";
 
-class RegisterView {
+class RegisterView extends  View {
     constructor() {
-        document.getElementById("btnRegister")!.addEventListener(ApplicationEvents.Click,
+         super("Register");
+         document.getElementById("btnRegister")!.addEventListener(ApplicationEvents.Click,
             (e: Event) => {
                 e.preventDefault();
                 this.Save();

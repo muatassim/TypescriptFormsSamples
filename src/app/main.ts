@@ -1,14 +1,15 @@
-import * as toastr from "toastr";
 import Swal from "sweetalert2";
 import { ApplicationEvents } from "./helpers/applicationevents";
 import {BaseDataService, IBaseDataService} from "./helpers/base.dataservice";
 import {EmployeesModel} from "./models/employees.model";
 import {AxiosResponse} from "axios";
 import {ITableHelper, TableHelper} from "./helpers/tablehelper";
-class Main {
+import {View} from "./views/view";
+class Main extends  View {
     dataService:IBaseDataService;
     tableHelper: ITableHelper;
     constructor() {
+        super("Main ");
         this.dataService = new BaseDataService();
         this.tableHelper = new TableHelper();
     }

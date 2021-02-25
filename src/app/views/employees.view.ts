@@ -6,7 +6,7 @@ import {View} from "./view";
 export class EmployeesView extends View {
     constructor() {
         super("Employees");
-        toastr.info(`Employees View Initialized!`);
+        // console.log(document.location.pathname.toString());
         document.getElementById("btnSave")!.addEventListener(ApplicationEvents.Click,
             (e: Event) => {
                 e.preventDefault();

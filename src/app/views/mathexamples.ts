@@ -1,9 +1,11 @@
 import { Main } from "../main";
+import {View} from "./view";
 
-class MathExamples {
+class MathExamples extends View {
 
     options: [string,string][]=[];
     constructor(){
+        super("Math Operations");
         this.options.push(["+","Addition"])  // index options 0 --> 00 = +, 01 = "Addition"
         this.options.push(["-","subtraction"]);
         this.options.push(["/","division"]);

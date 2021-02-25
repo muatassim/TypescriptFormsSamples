@@ -2,8 +2,10 @@ import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
 import Axios from "axios";
 import {CountryModel} from "../models/country.model";
-class switchStatementView {
+import {View} from "./view";
+class switchStatementView extends  View {
     constructor(){
+        super("Switch Statements Sample");
         document.getElementById("btnCheck")!
             .addEventListener("click", ((e: Event) => {
                 e.preventDefault();
