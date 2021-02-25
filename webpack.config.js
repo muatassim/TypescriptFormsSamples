@@ -65,7 +65,8 @@ module.exports = {
                         }
                     },
                     { loader: "postcss-loader" }, //post process to compile css
-                    { loader: "sass-loader" } // compiles Sass to CSS, using node Sass by default 
+                    { loader: "sass-loader" }  // compiles Sass to CSS, using node Sass by default
+
                 ]
             }
         ]
@@ -100,11 +101,12 @@ module.exports = {
                 {
                     from: path.join(srcPath, '/css/'),
                     to: path.join(distPath, '/css/')
-                },
-                {
+                }
+                ,{
                     from: path.join(srcPath, '/assets/'),
                     to: path.join(distPath, '/assets/')
                 }
+
             ]
         })
     ]

@@ -3,6 +3,7 @@ import * as toastr from "toastr";
 import Axios from "axios";
 import {CountryModel} from "../models/country.model";
 import {View} from "./view";
+import * as data from '../../assets/country-by-population.json';
 class switchStatementView extends  View {
     constructor(){
         super("Switch Statements Sample");
@@ -34,6 +35,11 @@ class switchStatementView extends  View {
     }
 
     countries: CountryModel[] =[];
+    bindFromLocal():void {
+        console.log(data);
+        this.countries  = data.default as Array<CountryModel>;
+        this.bindDropDown();
+    }
     getSelection(): void {
         Axios.get("https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-population.json")
             .then(axiosResponse => {
@@ -66,16 +72,13 @@ class switchStatementView extends  View {
             }
             i++;
         }
-
-
-        //while loop
-
-
-        // do while
     }
 }
 export {switchStatementView}
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
     let myView  = new switchStatementView();
-    myView.getSelection();
+    //myView.getSelection();
+    //Add countries twice using local
+    myView.bindFromLocal();
+
 })

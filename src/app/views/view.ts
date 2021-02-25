@@ -14,7 +14,7 @@ export abstract class View implements IView {
 
     setPageHeader(): void {
         document.getElementById(this.DivHeaderId)!.innerText = this.Header;
-        console.log(`this.setPageHeader called for Header: ${this.Header}`);
+        // console.log(`this.setPageHeader called for Header: ${this.Header}`);
     }
 
     buildNav(): void {
