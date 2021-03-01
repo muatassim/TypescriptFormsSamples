@@ -1,6 +1,6 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
-import Axios from "axios";
+import Axios, {AxiosResponse} from "axios";
 import {CountryModel} from "../models/country.model";
 import {View} from "./view";
 import * as data from '../../assets/country-by-population.json';
@@ -34,7 +34,7 @@ class switchStatementView extends  View {
         }
     }
 
-    countries: CountryModel[] =[];
+    countries: Array<CountryModel> =[];
     bindFromLocal():void {
         console.log(data);
         this.countries  = data.default as Array<CountryModel>;
@@ -42,14 +42,14 @@ class switchStatementView extends  View {
     }
     getSelection(): void {
         Axios.get("https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-population.json")
-            .then(axiosResponse => {
+            .then((axiosResponse: AxiosResponse)=> {
                 // console.log(axiosResponse.data);
                 this.countries = axiosResponse.data;
                 // let countryList : Array<CountryModel> = axiosResponse.data;
                 // console.log(countries);
                 this.bindDropDown();
             })
-            .catch(error => {
+            .catch((error: any) => {
                 toastr.error(error);
             })
             .finally(() => {

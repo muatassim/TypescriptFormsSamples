@@ -25,8 +25,8 @@ module.exports = {
         //Each entry points where to start the bundling process 
         //if an array is passed then all items will be processed 
         // best practice one entry point per html page
-        main: './main.ts',
-        "views/mathexamples": './views/mathexamples.ts',
+        main: "./main.ts",
+        "views/mathexamples": "./views/mathexamples.ts",
         "views/carloan": "./views/carloan.ts",
         "views/registerView": "./views/register.view.ts",
         "views/employeesView": "./views/employees.view.ts",
@@ -37,8 +37,9 @@ module.exports = {
         publicPath: distPath, //root path where js will be copied
         path: jsPath,  //javascript path identified above
         filename: '[name].js'  //output file name 
-    }, 
-    module: { //this section you add the plugins
+    },
+    module: {
+        //this section you add the plugins
         rules: [
             {
                 test: /\.tsx?$/,
@@ -56,11 +57,11 @@ module.exports = {
                 test: /\.(scss|sass|css)$/,
                 exclude: /node_modules/,
                 use: [
-                   // { loader: "style-loader" }, //creates style nodes from JS string
+                   //{ loader: "style-loader" }, //creates style nodes from JS string
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { 
+                        options: {
                             sourceMap: true
                         }
                     },
@@ -76,7 +77,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin(
-            {             
+            {
                 filename: '[name].css'
             }
         ),

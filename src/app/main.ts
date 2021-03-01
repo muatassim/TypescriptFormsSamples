@@ -1,42 +1,16 @@
-import Swal from "sweetalert2";
 import { ApplicationEvents } from "./helpers/applicationevents";
-import {BaseDataService, IBaseDataService} from "./helpers/base.dataservice";
-import {EmployeesModel} from "./models/employees.model";
-import {AxiosResponse} from "axios";
-import {ITableHelper, TableHelper} from "./helpers/tablehelper";
-import {View} from "./views/view";
-class Main extends  View {
-    dataService:IBaseDataService;
-    tableHelper: ITableHelper;
+import {ConsolePrint} from "sampletypescriptlibraryproject";
+class Main  {
+    consolePrint:ConsolePrint;
     constructor() {
-        super("Main ");
-        this.dataService = new BaseDataService();
-        this.tableHelper = new TableHelper();
+        this.consolePrint = new ConsolePrint();
     }
     init() {
-        toastr.options.positionClass = 'toast-bottom-full-width'
-        toastr.info("This is the information","Title Toaster");
-        let apiUrl:string = "https://nwwebapi.azurewebsites.net/api/";
-        this.GetEmployees(apiUrl);
+
+        this.consolePrint.Print("Azizdd");
+
     }
 
-    GetEmployees(apiUrl: string):void {
-        let employees: Array<EmployeesModel>;
-        this.dataService.Get(`${apiUrl}Employees`)!
-            .then((axiosResponse: AxiosResponse<Array<EmployeesModel>>) => {
-                employees = axiosResponse.data;
-                console.log(axiosResponse.data);
-                for (let i = 0; i < employees.length; i++) {
-                    console.log(`${employees[i].lastName}, ${employees[i].firstName}`);
-                }
-                let table: HTMLTableElement = this.tableHelper.getEmployeesTable(employees, apiUrl)
-                document.getElementById("main")!.appendChild(table);
-            }).catch((error) => {
-            Swal.fire(error);
-        }).finally(() => {
-            console.log(`Employees `, `employess record count is ${employees.length}`);
-        });
-    }
 }
 export {Main}
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
