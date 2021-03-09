@@ -1,5 +1,8 @@
 export interface  IView {
     Header: string;
-    DivHeaderId:string;
+    HeaderId:string;
+    btnId:string;
     setPageHeader(): void;
+    onButtonClick():void;
+
 }

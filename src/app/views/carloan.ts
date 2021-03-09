@@ -3,8 +3,7 @@ import {View} from "./view";
 
 class CarLoan extends  View {
     constructor() {
-        //console.log("constructor called");
-        super("Car Loan Calculator");
+        super("Car Loan Calculator","txtMonthlyPayments");
     }
 
     init():void {
@@ -20,29 +19,6 @@ class CarLoan extends  View {
             });
         }
     }
-    initd(): void {
-        let inputLoanPeriod: HTMLInputElement = <HTMLInputElement>
-            document.getElementById("txtLoanPeriod");
-        let inputInterestRate: HTMLInputElement = <HTMLInputElement> document.getElementById("txtInterestRate");
-        let inputLoanAmount: HTMLInputElement = <HTMLInputElement> document.getElementById("txtLoanAmount");
-
-        if (inputLoanPeriod){
-            inputLoanPeriod.addEventListener(ApplicationEvents.Input, () =>{
-                this.calculateLoan();
-            });
-        }
-        if (inputInterestRate){
-            inputInterestRate.addEventListener(ApplicationEvents.Input, () =>{
-                this.calculateLoan();
-            });
-        }
-        if (inputLoanAmount){
-            inputLoanAmount.addEventListener(ApplicationEvents.Input, () =>{
-                this.calculateLoan();
-            });
-        }
-    }
-
     calculateLoan() : void {
         let inputLoanAmount: HTMLInputElement = <HTMLInputElement> document.getElementById("txtLoanAmount");
         let inputInterestRate: HTMLInputElement = <HTMLInputElement> document.getElementById("txtInterestRate");
@@ -75,6 +51,10 @@ class CarLoan extends  View {
 
         }
 
+    }
+
+    onButtonClick(): void {
+        // console.log()
     }
 }
 

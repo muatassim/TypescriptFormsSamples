@@ -17,3 +17,9 @@
      padding: 1em;
 
  }
+ .active {
+     background-color: palegoldenrod;
+ }
+ nav {
+     color: burlywood;
+ }

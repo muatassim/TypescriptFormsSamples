@@ -4,16 +4,12 @@ import Axios, {AxiosResponse} from "axios";
 import {CountryModel} from "../models/country.model";
 import {View} from "./view";
 import * as data from '../../assets/country-by-population.json';
-class switchStatementView extends  View {
+class switchStatementView extends View {
     constructor(){
-        super("Switch Statements Sample");
-        document.getElementById("btnCheck")!
-            .addEventListener("click", ((e: Event) => {
-                e.preventDefault();
-                this.ShowSelection();
-            }));
+        super("Switch Statements Sample", "btnCheck");
+
     }
-    ShowSelection(): void {
+    onButtonClick(): void {
         let ddlCountry:HTMLSelectElement =<HTMLSelectElement>
             document.getElementById("ddlCountry");
         if (ddlCountry){

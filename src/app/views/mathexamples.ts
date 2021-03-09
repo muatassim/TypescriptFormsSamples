@@ -5,7 +5,7 @@ class MathExamples extends View {
 
     options: [string,string][]=[];
     constructor(){
-        super("Math Operations");
+        super("Math Operations","btnMath" );
         this.options.push(["+","Addition"])  // index options 0 --> 00 = +, 01 = "Addition"
         this.options.push(["-","subtraction"]);
         this.options.push(["/","division"]);
@@ -27,23 +27,10 @@ class MathExamples extends View {
             selectedOperator.options.add(optionElement);
          }
 
-
-         //End adding options to Select Element
-
-         //Add click listener to button
-         let buttonElement: HTMLButtonElement =
-                    <HTMLButtonElement> document.getElementById("btnMath");
-         if (buttonElement){
-             buttonElement.addEventListener("click", (e:Event)=>{
-                   this.onButtonClick(e);
-              });
-         }
-
        }
     }
-    onButtonClick(e:Event) {
-        e.preventDefault();
-         //console.log("button clicked!");
+    onButtonClick() {
+          //console.log("button clicked!");
          let firstNumberElement= <HTMLInputElement> document.getElementById("firstNumber");
          let secondNumberElement = <HTMLInputElement> document.getElementById("secondNumber");
          let selectedOperatorElement: HTMLSelectElement =   <HTMLSelectElement>
@@ -62,7 +49,7 @@ class MathExamples extends View {
                 listItemElement.innerHTML = `${firstNumberElement.value}&nbsp;
                      ${selectedOperatorElement.selectedOptions[0].value}&nbsp;
                      ${secondNumberElement.value}&nbsp;=&nbsp;${result}`;
-                 ulElement.append(listItemElement);
+                 ulElement.appendChild(listItemElement);
             }
          }
 

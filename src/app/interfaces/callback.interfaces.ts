@@ -5,6 +5,23 @@ export interface ICallBack {
     (): void;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //To define it
 class defineCall {
     save(Action: ICallbackParameter):void {

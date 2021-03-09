@@ -5,16 +5,16 @@ import {View} from "./view";
 
 export class EmployeesView extends View {
     constructor() {
-        super("Employees");
+        super("Employees","btnSave");
         // console.log(document.location.pathname.toString());
-        document.getElementById("btnSave")!.addEventListener(ApplicationEvents.Click,
-            (e: Event) => {
-                e.preventDefault();
-                this.Save();
-            });
+        this.showAlert();
+    }
+    showAlert() {
+
+        toastr.success("Child view");
     }
 
-    Save(): void {
+    onButtonClick(): void {
         let empModel: EmployeesModel = new EmployeesModel();
         if (empModel.validate("employeesForm", "btnSave")) {
             toastr.info(`${JSON.stringify(empModel)}`);

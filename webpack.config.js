@@ -31,7 +31,8 @@ module.exports = {
         "views/registerView": "./views/register.view.ts",
         "views/employeesView": "./views/employees.view.ts",
         "views/employeeListView": "./views/employeesList.view.ts",
-        "views/switchStatementView": "./views/switchStatement.view.ts"
+        "views/switchStatementView": "./views/switchStatement.view.ts",
+        "views/customerView": "./views/customer.view.ts"
     },
     output: {
         publicPath: distPath, //root path where js will be copied

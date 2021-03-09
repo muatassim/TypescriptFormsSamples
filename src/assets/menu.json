@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+     "url": "index.html",
+    "innerText": "Home",
+    "isSelected": true
+  },
+  {
+    "id": 2,
+    "url": "employees.html",
+    "innerText": "Employee",
+    "isSelected": false
+  },
+  {
+    "id": 3,
+    "url": "carLoan.html",
+    "innerText": "Loan",
+    "isSelected": false
+  },
+  {
+    "id": 4,
+    "url": "register.html",
+    "innerText": "Register",
+    "isSelected": false
+  },
+  {
+    "id": 5,
+    "url": "switchStatement.html",
+    "innerText": "Switch",
+    "isSelected": false
+  },
+  {
+    "id": 6,
+    "url": "customers.html",
+    "innerText": "Customers",
+    "isSelected": false
+  }
+]

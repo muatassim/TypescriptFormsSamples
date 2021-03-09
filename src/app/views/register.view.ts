@@ -5,14 +5,10 @@ import {View} from "./view";
 
 class RegisterView extends  View {
     constructor() {
-         super("Register");
-         document.getElementById("btnRegister")!.addEventListener(ApplicationEvents.Click,
-            (e: Event) => {
-                e.preventDefault();
-                this.Save();
-            });
+         super("Register", "btnRegister");
+
     }
-    Save(): void {
+    onButtonClick(): void {
         let registerModel: RegisterModel =
             new RegisterModel();
         if (registerModel.validate("registerForm", "btnRegister")){

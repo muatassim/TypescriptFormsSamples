@@ -4,26 +4,19 @@ import {EmployeesModel} from "../models/employees.model";
 import Axios from "axios";
 import {View} from "./view";
 
-class EmployeesListView extends  View{
+export class EmployeesListView extends  View{
     constructor() {
-        super("Employee List",);
-        document.getElementById('btnLoadData')!
-            .addEventListener(ApplicationEvents.Click, (e: Event) => {
-                e.preventDefault();
-                this.LoadData();
-            });
+        super("Employee List","btnLoadData");
     }
-
-    LoadData() {
+    onButtonClick() {
         document.getElementById('spinner')!
-            .setAttribute('class', 'spinner-border d-block');
+            .setAttribute('class',
+                'spinner-border d-block');
         Axios.get(`https://nwwebapi.azurewebsites.net/api/Employees`)!
             .then((axiosResponse) => {
                 //let employees: EmployeesModel[] = axiosResponse.data;
                 let employees: Array<EmployeesModel> = axiosResponse.data;
                 let table = this.showTable(employees);
-
-
                 document.getElementById("main")!.innerHTML = "";
                 document.getElementById("main")!.appendChild(table);
             })
@@ -32,13 +25,13 @@ class EmployeesListView extends  View{
             })
             .finally(() => {
                 toastr.info(`Data Loaded!`);
-                setTimeout(() => {
-                    document.getElementById('spinner')!
-                        .setAttribute('class', 'd-none');
-                }, 1000);
+                setTimeout(this.callMe, 1000);
             });
     }
-
+     private callMe():void{
+         document.getElementById('spinner')!
+             .setAttribute('class', 'd-none');
+     }
      showTable(employees: EmployeesModel[]): HTMLTableElement {
         let table: HTMLTableElement = document.createElement('table');
         table.setAttribute('class', `table table-bordered table-striped table-hover`);
@@ -85,13 +78,14 @@ class EmployeesListView extends  View{
         cell.setAttribute(attributeName, attributeValue);
 
     }
+
 }
 
-
-export {EmployeesListView}
 
 document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
     let emp = new EmployeesListView();
 
-
 });
+
+
+
