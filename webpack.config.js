@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeModulesPath = path.join(__dirname, 'node_modules');
 // Web application root directory
 const webRootPath = path.resolve(__dirname);
+
 const srcPath = path.join(__dirname, 'src');
 const appPath = path.join(srcPath, 'app');
 
@@ -32,7 +33,9 @@ module.exports = {
         "views/employeesView": "./views/employees.view.ts",
         "views/employeeListView": "./views/employeesList.view.ts",
         "views/switchStatementView": "./views/switchStatement.view.ts",
-        "views/customerView": "./views/customer.view.ts"
+        "views/customerView": "./views/customer.view.ts",
+        "views/httprequestsample" : "./views/httprequestsample.view.ts",
+        "views/faq": "./views/faq.view.ts"
     },
     output: {
         publicPath: distPath, //root path where js will be copied

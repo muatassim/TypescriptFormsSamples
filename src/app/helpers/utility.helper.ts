@@ -1,12 +1,9 @@
-interface  IUtilities {
+export interface  IUtility {
     validate(formId:string, btnId:string): boolean;
     getInputElement(id: string): HTMLInputElement | null;
     validateInput(id:string): boolean ;
-
 }
-class Utilities implements  IUtilities {
-    // this method we will use to validate
-    // values entered in the register form
+export class Utility implements  IUtility {
     validate(formId:string, btnId: string): boolean {
         let isValid: boolean = true;
         let form:HTMLFormElement= <HTMLFormElement>
@@ -22,40 +19,36 @@ class Utilities implements  IUtilities {
                     }
                 }
             }
-
         }
         return isValid;
     }
-
     getInputElement(id: string): HTMLInputElement | null {
         return <HTMLInputElement> document.getElementById(id);
     }
     validateInput(id:string): boolean {
         let inputElement: HTMLInputElement | null =
             this.getInputElement(id);
-        if (inputElement!.validity.valid) {
-            inputElement!.setAttribute(
-                "class", "form-control is-valid");
-            document.getElementById(
-                `${id}Help`)!.setAttribute(
-                "class", "d-none");
-            return true;
+        let isValid: boolean =true;
+        if (inputElement) {
+            if (inputElement!.validity.valid) {
+                inputElement!.setAttribute(
+                    "class", "form-control is-valid");
+                document.getElementById(
+                    `${id}Help`)!.setAttribute(
+                    "class", "d-none");
+                isValid=true;
+            } else {
+                inputElement.setAttribute(
+                    "class", "form-control is-invalid");
+                document.getElementById(
+                    `${id}Help`)!.setAttribute(
+                    "class", "text-danger d-block");
+                isValid= false;
+            }
         }
-        else{
-            inputElement?.setAttribute(
-                "class", "form-control is-invalid");
-            document.getElementById(
-                `${id}Help`)!.setAttribute(
-                "class", "text-danger d-block");
-            return false;
-        }
+        return isValid;
     }
 
-
-    
-
-
-
 }
-export  {IUtilities, Utilities}
+
 

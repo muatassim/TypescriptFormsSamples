@@ -10,10 +10,9 @@ export interface ICustomerModel {
     country:string;
     phone:string;
     fax:string;
-    [key:string]:string;
 }
 export class CustomerModel implements ICustomerModel {
-    [key: string]: string;
+
     address: string="";
     city: string="";
     companyName: string="";

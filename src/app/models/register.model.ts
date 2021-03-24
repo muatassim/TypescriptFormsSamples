@@ -1,4 +1,4 @@
-import {IUtilities, Utilities} from "../helpers/utilities.helper";
+import {IUtility, Utility} from "../helpers/utility.helper";
 
 interface IRegisterModel {
     firstName: string;
@@ -16,9 +16,9 @@ class RegisterModel implements IRegisterModel {
     confirmEmail: string;
     password: string;
     confirmPassword: string;
-    utils: IUtilities;
+    utils: IUtility;
     constructor() {
-        this.utils = new Utilities();
+        this.utils = new Utility();
         this.firstName = this.utils.getInputElement("txtFirstName")!.value;
         this.lastName = this.utils.getInputElement("txtLastName")!.value;
         this.email = this.utils.getInputElement("txtEmail")!.value;

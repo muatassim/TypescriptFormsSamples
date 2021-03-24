@@ -34,5 +34,17 @@
     "url": "customers.html",
     "innerText": "Customers",
     "isSelected": false
+  },
+  {
+    "id": 7,
+    "url": "HttpRequestSample.html",
+    "innerText": "HttpRequest",
+    "isSelected": false
+  },
+  {
+    "id": 8,
+    "url": "faq.html",
+    "innerText": "FAQ",
+    "isSelected": false
   }
 ]

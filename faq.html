@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link rel="stylesheet" href="dist/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/libs/toastr/build/toastr.css">
+    <link rel="stylesheet" href="dist/css/site.css">
+    <title>Frequently Asked Questions about Typescript</title>
+</head>
+
+<body class="container">
+
+
+<header id="header"></header>
+    <main class="accordion" id="accordionExample">
+        <article class="card">
+            <header class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button"
+                            data-toggle="collapse"
+                            data-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne">
+                            What is TypeScript?
+                    </button>
+                </h2>
+            </header>
+            <section id="collapseOne" class="collapse show"
+                     aria-labelledby="headingOne"
+                     data-parent="#accordionExample">
+                <summary class="card-body">
+                    <p>A TypeScript code is written in a file with <strong>.ts extension</strong> and then compiled into JavaScript using the compiler. You can write the file in any code editor and the compiler needs to be installed on your platform. After the installation, the command <strong>tsc &lt;filename&gt;.ts</strong> compiles the TypeScript code into a plain JavaScript file.</p>            </summary>
+            </section>
+        </article>
+
+    </main>
+</main>
+<!-- scripts -->
+<script src="dist/libs/jquery/dist/jquery.js"></script>
+<script src="dist/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="dist/js/views/faq.js"></script>
+</body>
+
+</html>

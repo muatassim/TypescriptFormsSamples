@@ -1,4 +1,4 @@
-import {IUtilities, Utilities} from "../helpers/utilities.helper";
+import {IUtility, Utility} from "../helpers/utility.helper";
 interface IProducts {
     productID: number;
     productName: string;
@@ -23,10 +23,10 @@ class Products implements IProducts {
     unitsOnOrder: number;
     reorderLevel: number;
     discontinued: boolean;
-    utils: IUtilities;
+    utils: IUtility;
 
     constructor() {
-        this.utils = new Utilities();
+        this.utils = new Utility();
         this.productID = Number(this.utils.getInputElement("txtProductID")!.value);
         this.productName = this.utils.getInputElement("txtProductName")!.value;
         this.supplierID = Number(this.utils.getInputElement("txtSupplierID")!.value);

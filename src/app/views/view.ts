@@ -1,5 +1,4 @@
 import {IView} from "../interfaces/iview.interfaces";
-import * as toastr from "toastr";
 import {MenuModel} from "../models/menu.model";
 import * as menuData from "../../assets/menu.json";
 import {ApplicationEvents} from "../helpers/applicationevents";
@@ -73,4 +72,6 @@ export abstract class View implements IView {
                 this.onButtonClick();
             });
     }
+
+
 }

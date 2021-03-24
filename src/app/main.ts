@@ -6,7 +6,6 @@ export class Main  {
         this.consolePrint = new ConsolePrint();
     }
     init() {
-
      // console.log(this.sumAll(this.array));
     //  console.log(this.sumAllUsingRest(1,2,3,4));
     }
@@ -23,8 +22,6 @@ document.addEventListener(ApplicationEvents.DOMContentLoaded, () => {
     let app: Main = new Main();  
     app.init();
 });
-
-
 
 
 

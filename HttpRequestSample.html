@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links -->
+    <link rel="stylesheet" href="dist/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/libs/toastr/build/toastr.css">
+    <link rel="stylesheet" href="dist/css/site.css">
+    <title>Html Template</title>
+</head>
+
+<body class="container">
+
+
+<header id="header"></header>
+
+<main>
+    <form  id="frmRequest"  name="frmRequest">
+        <section class="form-group">
+            <label for="txtUrl"></label>
+            <input class="form-control" required placeholder="Enter Url" type="Url" name="txtUrl" id="txtUrl"
+               value="https://dog.ceo/api/breeds/image/random">
+            <small id="txtUrlHelp" class="d-none">
+                 Url is required.
+            </small>
+        </section>
+        <section class="form-group">
+            <label for="ddlMethod"></label>
+            <select name="ddlMethod" id="ddlMethod" class="form-control"  required  >
+                <option value="">Please Select</option>
+            </select>
+            <small id="ddlMethodHelp" class="d-none">
+                Please Select One
+            </small>
+        </section>
+        <section class="form-group">
+            <button id="btnLoad" name="btnLoad" class="btn btn-primary btn-lg">Load Data</button>
+        </section>
+        <section>
+            <img id="imgDog" name="imgDog"
+                 src="https://images.dog.ceo/breeds/wolfhound-irish/n02090721_2442.jpg"
+                 class="img-fluid" alt="Responsive image" >
+        </section>
+    </form>
+
+</main>
+<footer>
+</footer>
+<!-- scripts -->
+<script src="dist/libs/jquery/dist/jquery.js"></script>
+<script src="dist/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="dist/js/views/httprequestsample.js"></script>
+</body>
+
+</html>

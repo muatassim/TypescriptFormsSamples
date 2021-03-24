@@ -1,6 +1,6 @@
 import {ApplicationEvents} from "../helpers/applicationevents";
 import * as toastr from "toastr";
-import {EmployeesModel, IEmployeesModel} from "../models/employees.model";
+import {EmployeesModel} from "../models/employees.model";
 import {View} from "./view";
 
 export class EmployeesView extends View {

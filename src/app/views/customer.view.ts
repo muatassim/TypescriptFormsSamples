@@ -8,27 +8,35 @@ export class CustomerView extends View {
     constructor() {
         super("Customers", "btnLoadData");
     }
-
     async onButtonClick() {
         let customers: CustomerModel[] =[];
         try {
-            customers = await this.getAsync('https://nwwebapi.azurewebsites.net/api/Customers');
+            customers = await this.getAsync<CustomerModel>
+                ('https://nwwebapi.azurewebsites.net/api/Customers')
+                 ;
         } catch (error) {
             toastr.error(error);
         } finally {
-           document.getElementById('main')!.innerText = JSON.stringify(customers);
+           let main: HTMLElement | null = document.getElementById('main');
+            if (main)
+            {
+                let ulElement = document.createElement("ul");
+                for(let customer of customers){
+                    let liElement = document.createElement("li");
+                    liElement.innerText = `${customer.customerID}`;
+                    ulElement.appendChild(liElement);
+                }
+                main.appendChild(ulElement);
+            }
+
         }
     }
 
-
-
-
-
-    async getAsync(url:string) : Promise<CustomerModel[]> {
+    async getAsync<T>(url:string) : Promise<T[]> {
         try{
             let response = await Axios.get(url);
             let {data} = response;
-            return data as CustomerModel[];
+            return data as T[];
         }
         catch (error){
             console.error(error);

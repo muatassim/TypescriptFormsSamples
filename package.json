@@ -23,6 +23,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "rxjs": "^6.6.6",
     "sampletypescriptlibraryproject": "file:../sampletypescriptlibraryproject/sampletypescriptlibraryproject-1.0.0.tgz",
     "sweetalert2": "^10.14.0",
     "toastr": "^2.1.4"

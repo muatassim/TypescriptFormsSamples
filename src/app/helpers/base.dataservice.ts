@@ -6,12 +6,17 @@ interface IBaseDataService{
     Remove(contentType:string,url:string): Promise<AxiosResponse>;
     handleResponse(response:AxiosResponse) : void;
     HandleMethods(responseAx:Promise<AxiosResponse>):void;
+    getAsync<T>(url: string): Promise<T>;
 }
 
 class BaseDataService implements IBaseDataService{
 
     constructor(){
     }
+    GetGeneric<T>(url: string): Promise<T> {
+        return Axios.get(url);
+    }
+
     Get<T>(url:string): Promise<AxiosResponse>  { 
         let data = Axios.get<T>(url);
         //console.log(`Add >> ${data}`);
@@ -68,6 +73,19 @@ class BaseDataService implements IBaseDataService{
     handleResponse(response:AxiosResponse) : void  {
         console.log(response.data);
     }
+
+    async getAsync<T>(url: string): Promise<T> {
+        try {
+            let response = await Axios.get<T>(url);
+            //let data = response.data;
+             let  {data} = response;
+            return data as T;
+        } catch (err) {
+            console.log(err);
+            throw new Error(`Error has occurred in getting data from ${url}`);
+        }
+    }
+
 
 
 

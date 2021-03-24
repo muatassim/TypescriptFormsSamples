@@ -1,4 +1,4 @@
-import {IUtilities, Utilities} from "../helpers/utilities.helper";
+import {IUtility, Utility} from "../helpers/utility.helper";
 
 interface IEmployeesModel {
     employeeID: number;
@@ -44,9 +44,9 @@ class   EmployeesModel implements  IEmployeesModel {
     title: string;
     titleOfCourtesy: string;
 
-    utils:IUtilities;
+    utils:IUtility;
     constructor() {
-        this.utils = new Utilities();
+        this.utils = new Utility();
         this.address = this.utils.getInputElement("txtAddress")!.value;
         this.birthDate =  new Date(this.utils.getInputElement("txtBirthDate")!.value);
         this.city = this.utils.getInputElement("txtCity")!.value;
